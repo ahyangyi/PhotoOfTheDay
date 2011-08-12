@@ -10,7 +10,7 @@ from datetime import date
 from BeautifulSoup import BeautifulSoup
 
 class PhotoOfTheDay:
-    def __init__(self, xdm, wide_scale=1.3):
+    def __init__(self, xdm, wide_scale=1.5):
         self.url = "http://photography.nationalgeographic.com/photography/photo-of-the-day/"
         self.xdm = xdm
         self.wide_scale = wide_scale
