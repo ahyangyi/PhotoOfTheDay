@@ -5,6 +5,8 @@
 #
 
 import urllib2
+from datetime import datetime
+from datetime import date
 from BeautifulSoup import BeautifulSoup
 
 class PhotoOfTheDay:
@@ -26,7 +28,8 @@ class PhotoOfTheDay:
             link = s[0].contents[1].contents[1]['src']
         if not link: return None
         data = urllib2.urlopen(link).read()
-        filename = "/tmp/photooftheday"
+        filename = "/tmp/photooftheday.%s" % \
+                date(datetime.now().year,datetime.now().month,datetime.now().day)
         open(filename, "wb").write(data)
         from PIL import Image
         image = Image.open(filename)
