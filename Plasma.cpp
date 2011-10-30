@@ -1,4 +1,4 @@
-#include "Knotplasm.h"
+#include "Plasma.h"
 #include <QPainter>
 #include <QFontMetrics>
 #include <QSizeF>
@@ -7,7 +7,7 @@
 #include <plasma/theme.h>
  
  
-Knotplasm::Knotplasm(QObject *parent, const QVariantList &args)
+PhotoOfTheDay::PhotoOfTheDay(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
     m_svg(this),
     m_icon("document")
@@ -19,7 +19,7 @@ Knotplasm::Knotplasm(QObject *parent, const QVariantList &args)
 }
  
  
-Knotplasm::~Knotplasm()
+PhotoOfTheDay::~PhotoOfTheDay()
 {
     if (hasFailedToLaunch()) {
         // Do some cleanup here
@@ -28,7 +28,7 @@ Knotplasm::~Knotplasm()
     }
 }
  
-void Knotplasm::init()
+void PhotoOfTheDay::init()
 {
  
     // A small demonstration of the setFailedToLaunch function
@@ -38,7 +38,7 @@ void Knotplasm::init()
 } 
  
  
-void Knotplasm::paintInterface(QPainter *p,
+void PhotoOfTheDay::paintInterface(QPainter *p,
         const QStyleOptionGraphicsItem *option, const QRect &contentsRect)
 {
     p->setRenderHint(QPainter::SmoothPixmapTransform);
@@ -59,6 +59,6 @@ void Knotplasm::paintInterface(QPainter *p,
 }
  
 // This is the command that links your applet to the .desktop file
-K_EXPORT_PLASMA_APPLET(tutorial1, Knotplasm)
+K_EXPORT_PLASMA_APPLET(PhotoOfTheDay, PhotoOfTheDay)
  
-#include "Knotplasm.moc"
+#include "Plasma.moc"

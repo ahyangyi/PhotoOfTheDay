@@ -1,11 +1,11 @@
 [Desktop Entry]
-Name=Knotplasm
-Comment=The plasmoid frontend for Simon Tatham's Portable Puzzle Collection
+Name=PhotoOfTheDay
+Comment=Shows the Photo of The Day from National Geography.
 Type=Service
 ServiceTypes=Plasma/Applet
  
-X-KDE-Library=Knotplasm
-X-KDE-PluginInfo-Name=Knotplasm
+X-KDE-Library=plasma_applet_PhotoOfTheDay
+X-KDE-PluginInfo-Name=PhotoOfTheDay
 X-KDE-PluginInfo-Category=Games
 X-KDE-PluginInfo-Author=Yi Yang
 X-KDE-PluginInfo-Email=ahyangyi@gmail.com

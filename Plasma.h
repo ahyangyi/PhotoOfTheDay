@@ -1,5 +1,5 @@
-#ifndef Knotplasm_HEADER
-#define Knotplasm_HEADER
+#ifndef PhotoOfTheDay_HEADER
+#define PhotoOfTheDay_HEADER
 
 #include <KIcon>
  
@@ -9,13 +9,13 @@
 class QSizeF;
  
 // Define our plasma Applet
-class Knotplasm : public Plasma::Applet
+class PhotoOfTheDay : public Plasma::Applet
 {
     Q_OBJECT
     public:
         // Basic Create/Destroy
-        Knotplasm(QObject *parent, const QVariantList &args);
-        ~Knotplasm();
+        PhotoOfTheDay(QObject *parent, const QVariantList &args);
+        ~PhotoOfTheDay();
  
         // The paintInterface procedure paints the applet to screen
         void paintInterface(QPainter *p,
