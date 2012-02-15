@@ -83,8 +83,7 @@ void NGProvider::Private::pageRequestFinished( KJob *_job )
     const QString sub = data.mid( pos1, pos2 - pos1);
 
     KUrl url( sub  );
-//    KIO::StoredTransferJob *imageJob = KIO::storedGet( url, KIO::NoReload, KIO::HideProgressInfo);
-    KIO::StoredTransferJob *imageJob = KIO::storedGet( url );
+    KIO::StoredTransferJob *imageJob = KIO::storedGet( url, KIO::NoReload, KIO::HideProgressInfo);
     mParent -> connect(imageJob, SIGNAL( finished( KJob* )), SLOT( imageRequestFinished( KJob* ) ) ); 
 }
 
@@ -103,15 +102,9 @@ void NGProvider::Private::imageRequestFinished( KJob *_job )
     NGProvider::NGProvider( QObject *parent, const QVariantList &args )
 : PotdProvider( parent, args ), d( new Private( this ) )
 {
-    const QString type = args[ 0 ].toString();
-    if ( type == QLatin1String( "Date" ) ) {
-        d->mDate = args[ 1 ].toDate();
-    } else {
-        Q_ASSERT( false && "Invalid type passed to potd provider" );
-    }
-
+    d->mDate = date();
     KUrl url(QLatin1String( "http://photography.nationalgeographic.com/photography/photo-of-the-day/" ) );
-    KIO::StoredTransferJob *job = KIO::storedGet( url );
+    KIO::StoredTransferJob *job = KIO::storedGet( url, KIO::NoReload, KIO::HideProgressInfo );
     connect( job, SIGNAL( finished( KJob* ) ), SLOT( pageRequestFinished( KJob* ) ) );
 }
 
@@ -123,11 +116,6 @@ NGProvider::~NGProvider()
 QImage NGProvider::image() const
 {
     return d->mImage;
-}
-
-QString NGProvider::identifier() const
-{
-    return QString( QLatin1String( "ng:%1" ) ).arg( d->mDate.toString( Qt::ISODate ));
 }
 
 #include "ngprovider.moc"
